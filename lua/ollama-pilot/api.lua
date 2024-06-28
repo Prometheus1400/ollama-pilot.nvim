@@ -179,7 +179,6 @@ M.chat = function()
     -- TODO: lots more enhancements to do here
     -- chat history and maybe agent integration with cht.sh
 
-
     open_chat_window()
 end
 
@@ -191,7 +190,8 @@ M.autocomplete_suggestion = function()
     local ns = vim.api.nvim_create_namespace("virtual_autocomplete")
     local virt_text = ""
 
-    local above, current, below = get_local_context(50)
+    local cfg = config.get_config()
+    local above, current, below = get_local_context(cfg.autocomplete.context_line_size)
     local prompt = prompt_templates.autocomplete(above, current, below)
     local ctx = context:new()
     local tok_stream = stream:new(function(tok)

@@ -35,7 +35,7 @@ M.default_config = {
     },
     autocomplete = {
         -- how many lines to grab above AND below the current position to add as context to autocomplete request
-        context_line_size = 30,
+        context_line_size = 100,
     }
 }
 
